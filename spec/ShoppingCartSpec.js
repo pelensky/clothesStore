@@ -30,4 +30,28 @@ describe("ShoppingCart", function() {
       expect(shoppingCart.items).toEqual([[shoe, 5]]);
     });
   });
+
+  describe("Removing from the cart", function(){
+    it("items can be removed at any time", function(){
+      shoppingCart.addItem(shoe, 1);
+      shoppingCart.removeItem(shoe, 1);
+      expect(shoppingCart.items).toEqual([]);
+    });
+  });
+
+  describe("Removing from the cart", function(){
+    it("items can be removed at any time", function(){
+      shoppingCart.addItem(shoe, 1);
+      shoppingCart.removeItem(shoe, 1);
+      expect(shoppingCart.items).toEqual([]);
+    });
+  });
+
+  describe("Change quantity", function(){
+    it("items can change quantity in the cart", function(){
+      shoppingCart.addItem(shoe, 1);
+      shoppingCart.changeQuantity(shoe, 4);
+      expect(shoppingCart.items).toEqual([shoe, 4]);
+    });
+  });
 });

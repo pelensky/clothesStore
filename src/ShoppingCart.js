@@ -12,3 +12,7 @@ ShoppingCart.prototype.addItem = function(item, quantity){
     this.items.push( [ item, quantity ]);
   }
 }
+
+ShoppingCart.prototype.removeItem = function(item, quantity){
+  this.items.splice([item, quantity]);
+}
