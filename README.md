@@ -12,7 +12,7 @@ The products available are:
 
 | Product Name | Category | Price | Quantity in Stock |
 |----------|----------|----------|----------|
-|Almond Toe Court Shoes, Patent Black | Women’s Footwear | £99.00 | 5 |
+| Almond Toe Court Shoes, Patent Black | Women’s Footwear | £99.00 | 5 |
 | Suede Shoes, Blue | Women’s Footwear | £42.00 |4 |
 | Leather Driver Saddle Loafers, Tan | Men’s Footwear | £34.00 | 12 |
 | Flip Flops, Red | Men’s Footwear | £19.00 | 6 |

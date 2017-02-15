@@ -9,19 +9,14 @@ describe("Product", function() {
     it("name", function() {
       expect(shoe.name).toEqual("Almond Toe Court Shoes, Patent Black");
     });
-
     it("category", function() {
       expect(shoe.category).toEqual("Women’s Footwear");
     });
-
     it("price", function() {
       expect(shoe.price).toEqual(99);
     });
-
     it("quantity", function() {
       expect(shoe.quantity).toEqual(5);
     });
-
-
   });
 });
