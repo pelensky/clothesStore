@@ -3,8 +3,9 @@ describe("ShoppingCart", function() {
   var shoe;
 
   beforeEach(function() {
-    shoppingCart = new ShoppingCart;
+    shoppingCart = new ShoppingCart();
     shoe = new Product("Almond Toe Court Shoes, Patent Black", "Women’s Footwear", 99, 5 );
+    flipFlops = new Product("Flip Flops, Blue", "Men’s Footwear", 19, 0)
   });
 
   describe("The shopping cart starts with", function(){
@@ -13,10 +14,15 @@ describe("ShoppingCart", function() {
     });
   });
 
-  describe("Customers can add an item to the cart if", function(){
-    it("there is sufficient quantity", function(){
+  describe("Adding to the cart", function(){
+    it("items can be added if there is sufficient quantity", function(){
       shoppingCart.addItem(shoe, 1);
       expect(shoppingCart.items).toEqual([[shoe, 1]]);
+    });
+
+    it("items can not be added if they are out of stock", function(){
+      shoppingCart.addItem(flipFlops, 1);
+      expect(shoppingCart.items).not.toEqual([[flipFlops, 1]])
     });
   });
 });

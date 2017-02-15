@@ -16,7 +16,7 @@ The products available are:
 | Suede Shoes, Blue | Women’s Footwear | £42.00 |4 |
 | Leather Driver Saddle Loafers, Tan | Men’s Footwear | £34.00 | 12 |
 | Flip Flops, Red | Men’s Footwear | £19.00 | 6 |
-| Flip Flops, Blude | Men’s Footwear | £19.00 | 0 |
+| Flip Flops, Blue | Men’s Footwear | £19.00 | 0 |
 | Gold Button Cardigan, Black | Women’s Casualwear | £167.00 | 6 |
 | Cotton Shorts, Medium Red | Women’s Casualwear | £30.00 | 5 |
 | Fine Stripe Short Sleeve Shirt, Grey | Men’s Casualwear | £49.99 | 9 |
