@@ -22,7 +22,12 @@ describe("ShoppingCart", function() {
 
     it("items can not be added if they are out of stock", function(){
       shoppingCart.addItem(flipFlops, 1);
-      expect(shoppingCart.items).not.toEqual([[flipFlops, 1]])
+      expect(shoppingCart.items).not.toEqual([[flipFlops, 1]]);
+    });
+
+    it("items will only be added up to the maximum stock", function(){
+      shoppingCart.addItem(shoe, 6);
+      expect(shoppingCart.items).toEqual([[shoe, 5]]);
     });
   });
 });
