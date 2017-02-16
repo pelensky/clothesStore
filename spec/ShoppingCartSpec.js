@@ -50,13 +50,12 @@ describe("ShoppingCart", function() {
       shoppingCart.removeItem(shoe, 1);
       expect(shoppingCart.items).toEqual([]);
     });
-  });
 
-  describe("Removing from the cart", function(){
-    it("items can be removed at any time", function(){
+    it("items can be removed when there are multiples", function(){
       shoppingCart.addItem(shoe, 1);
+      shoppingCart.addItem(dress, 1);
       shoppingCart.removeItem(shoe, 1);
-      expect(shoppingCart.items).toEqual([]);
+      expect(shoppingCart.items).toEqual([[dress, 1]]);
     });
   });
 
