@@ -16,3 +16,11 @@ ShoppingCart.prototype.addItem = function(item, quantity){
 ShoppingCart.prototype.removeItem = function(item, quantity){
   this.items.splice([item, quantity]);
 }
+
+ShoppingCart.prototype.totalPrice = function() {
+  var total = 0;
+  for (i = 0; i < this.items.length; i++) {
+    total += this.items[i][0].price * this.items[i][1];
+  }
+  return total;
+}

@@ -47,11 +47,15 @@ describe("ShoppingCart", function() {
     });
   });
 
-  describe("Change quantity", function(){
-    it("items can change quantity in the cart", function(){
+  describe("Display the total price of the shopping Cart when", function(){
+    it("there is only one item", function(){
       shoppingCart.addItem(shoe, 1);
-      shoppingCart.changeQuantity(shoe, 4);
-      expect(shoppingCart.items).toEqual([shoe, 4]);
+      expect(shoppingCart.totalPrice()).toEqual(99)
     });
+
+    it("there is more than one of each item", function(){
+      shoppingCart.addItem(shoe, 2);
+          expect(shoppingCart.totalPrice()).toEqual(198);
+    })
   });
 });
