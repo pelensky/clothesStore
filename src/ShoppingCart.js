@@ -10,6 +10,7 @@ ShoppingCart.prototype.addItem = function(item, quantity){
     return `Not enough in stock. ${item.quantity} added to your cart.`
   } else {
     this.items.push( [ item, quantity ]);
+    console.log(this.items)
   }
 }
 
