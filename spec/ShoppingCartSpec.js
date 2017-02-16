@@ -40,8 +40,6 @@ describe("ShoppingCart", function() {
       shoppingCart.addItem(dress, 1);
       expect(shoppingCart.items).toEqual([[shoe, 1], [dress, 1]]);
     });
-
-
   });
 
   describe("Removing from the cart", function(){
