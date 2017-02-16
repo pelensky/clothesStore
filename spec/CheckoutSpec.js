@@ -16,7 +16,7 @@ describe("Checkout", function() {
 
 
   describe("A shopping Cart must be passed in", function(){
-    it("stores the ShoppingCart", function() {
+    it("stores the shopping cart", function() {
       expect(checkout.shoppingCart).toEqual(shoppingCart);
     });
   });
