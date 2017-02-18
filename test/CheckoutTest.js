@@ -7,7 +7,7 @@ var Voucher = require('../src/Voucher.js');
 describe("Checkout", function() {
 
   beforeEach(function() {
-    shoe = new Product("Almond Toe Court Shoes, Patent Black", "Women’s Footwear", 99, 5 );
+    shoe = new Product("Almond Toe Court Shoes, Patent Black", "Women's Footwear", 99, 5 );
     dress = new Product("Bird Print Dress, Black", "Women’s Formalwear", 270, 10);
     shorts = new Product("Cotton Shorts, Medium Red", "Women's Casualwear", 30, 5);
     shoppingCart1 = new ShoppingCart();
@@ -18,7 +18,7 @@ describe("Checkout", function() {
     shoppingCart2.addItem( shorts, 1);
     checkout2 = new Checkout(shoppingCart2);
     shoppingCart3 = new ShoppingCart();
-    shoppingCart3.addItem( dress, 1); 
+    shoppingCart3.addItem( dress, 1);
     checkout3 = new Checkout(shoppingCart3);
     voucher1 = new Voucher(5);
     voucher2 = new Voucher(10, 50);
@@ -32,7 +32,7 @@ describe("Checkout", function() {
     });
   });
 
-  describe("Price", function(){
+  describe("Subtotal", function(){
     it("shows the price before discount", function() {
       expect(checkout1.showSubtotal()).to.equal(468);
     });
@@ -40,7 +40,7 @@ describe("Checkout", function() {
   describe("Discount", function(){
     it ("accepts the voucher if it is valid", function() {
       checkout1.addVoucher(voucher1);
-     expect(checkout1.voucher.amount).to.equal(5); 
+     expect(checkout1.voucher.amount).to.equal(5);
     });
     it ("rejects the voucher if the spend is not high enough", function() {
       checkout2.addVoucher(voucher2);
@@ -53,6 +53,10 @@ describe("Checkout", function() {
     it("rejects the voucher if it doesn't meet all the conditions", function(){
       checkout3.addVoucher(voucher3);
       expect(checkout3.voucher).not.to.equal(voucher3);
+    });
+    it("accepts the voucher if it meets all the conditions", function(){
+      checkout1.addVoucher(voucher3);
+      expect(checkout1.voucher.amount).to.equal(15);
     });
   });
 });
