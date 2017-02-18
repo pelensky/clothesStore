@@ -5,11 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha -R nyan"
-  },
-  client: {
-  captureConsole: true,
-  mocha: {
-    bail: true
   }
 },
   "repository": {
