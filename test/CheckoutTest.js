@@ -17,8 +17,12 @@ describe("Checkout", function() {
     shoppingCart2 = new ShoppingCart();
     shoppingCart2.addItem( shorts, 1);
     checkout2 = new Checkout(shoppingCart2);
+    shoppingCart3 = new ShoppingCart();
+    shoppingCart3.addItem( dress, 1); 
+    checkout3 = new Checkout(shoppingCart3);
     voucher1 = new Voucher(5);
     voucher2 = new Voucher(10, 50);
+    voucher3 = new Voucher(15, 75, "Women's Footwear");
   });
 
 
@@ -41,6 +45,14 @@ describe("Checkout", function() {
     it ("rejects the voucher if the spend is not high enough", function() {
       checkout2.addVoucher(voucher2);
       expect(checkout2.voucher).not.to.equal(voucher2);
+    });
+    it("accepts the voucher if the spend is high enough", function(){
+      checkout1.addVoucher(voucher2);
+      expect(checkout1.voucher.amount).to.equal(10);
+    });
+    it("rejects the voucher if it doesn't meet all the conditions", function(){
+      checkout3.addVoucher(voucher3);
+      expect(checkout3.voucher).not.to.equal(voucher3);
     });
   });
 });
