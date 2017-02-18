@@ -7,6 +7,8 @@ return this.shoppingCart.totalPrice();
 }
 
 Checkout.prototype.addVoucher = function(voucher) {
+  if(this.shoppingCart.totalPrice() >= voucher.minSpend){
   this.voucher = voucher;
+}
 }
 module.exports = Checkout;

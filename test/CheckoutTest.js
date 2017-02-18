@@ -5,38 +5,42 @@ var Checkout = require('../src/Checkout.js');
 var Voucher = require('../src/Voucher.js');
 
 describe("Checkout", function() {
-  var checkout;
-  var shoppingCart;
-  var shoe;
-  var dress;
-  var voucher1;
 
   beforeEach(function() {
     shoe = new Product("Almond Toe Court Shoes, Patent Black", "Women’s Footwear", 99, 5 );
     dress = new Product("Bird Print Dress, Black", "Women’s Formalwear", 270, 10);
-    shoppingCart = new ShoppingCart();
-    shoppingCart.addItem( shoe, 2 );
-    shoppingCart.addItem( dress, 1 );
-    checkout = new Checkout(shoppingCart);
+    shorts = new Product("Cotton Shorts, Medium Red", "Women's Casualwear", 30, 5);
+    shoppingCart1 = new ShoppingCart();
+    shoppingCart1.addItem( shoe, 2 );
+    shoppingCart1.addItem( dress, 1 );
+    checkout1 = new Checkout(shoppingCart1);
+    shoppingCart2 = new ShoppingCart();
+    shoppingCart2.addItem( shorts, 1);
+    checkout2 = new Checkout(shoppingCart2);
     voucher1 = new Voucher(5);
+    voucher2 = new Voucher(10, 50);
   });
 
 
   describe("A shopping Cart must be passed in", function(){
     it("stores the shopping cart", function() {
-      expect(checkout.shoppingCart).to.equal(shoppingCart);
+      expect(checkout1.shoppingCart).to.equal(shoppingCart1);
     });
   });
 
   describe("Price", function(){
     it("shows the price before discount", function() {
-      expect(checkout.showSubtotal()).to.equal(468);
+      expect(checkout1.showSubtotal()).to.equal(468);
     });
   });
   describe("Discount", function(){
-    it ("shows the amount of the discount", function() {
-      checkout.addVoucher(voucher1);
-     expect(checkout.voucher.amount).to.equal(5); 
+    it ("accepts the voucher if it is valid", function() {
+      checkout1.addVoucher(voucher1);
+     expect(checkout1.voucher.amount).to.equal(5); 
+    });
+    it ("rejects the voucher if the spend is not high enough", function() {
+      checkout2.addVoucher(voucher2);
+      expect(checkout2.voucher).not.to.equal(voucher2);
     });
   });
 });
