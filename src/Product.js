@@ -4,3 +4,5 @@ function Product(name, category, price, quantity) {
   this.price = price;
   this.quantity = quantity;
 }
+
+module.exports = Product;

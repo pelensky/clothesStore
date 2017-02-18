@@ -1,0 +1,26 @@
+{
+  "name": "clothesstore",
+  "version": "1.0.0",
+  "description": "Web clothes store built in Javascript"
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R nyan"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pelensky/clothesStore.git"
+  },
+  "author": "Dan Pelensky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pelensky/clothesStore/issues"
+  },
+  "homepage": "https://github.com/pelensky/clothesStore#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "karma": "^1.4.1",
+    "karma-nyan-reporter": "^0.2.5",
+    "mocha": "^3.2.0",
+    "simple-mock": "^0.7.3"
+  }
+}

@@ -3,3 +3,5 @@ function Voucher(amount, minSpend, requiredItem ) {
   this.minSpend = minSpend;
   this.requiredItem = requiredItem;
 }
+
+module.exports = Voucher;

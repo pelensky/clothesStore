@@ -31,3 +31,4 @@ ShoppingCart.prototype.totalPrice = function() {
   }
   return total;
 }
+module.exports = ShoppingCart;
