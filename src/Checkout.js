@@ -3,7 +3,6 @@ function Checkout(shoppingCart) {
 }
 
 Checkout.prototype.showSubtotal = function() {
-  console.log(this.shoppingCart);
 return this.shoppingCart.totalPrice();
 }
 

@@ -6,6 +6,12 @@
   "scripts": {
     "test": "mocha -R nyan"
   },
+  client: {
+  captureConsole: true,
+  mocha: {
+    bail: true
+  }
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pelensky/clothesStore.git"
@@ -22,5 +28,6 @@
     "karma-nyan-reporter": "^0.2.5",
     "mocha": "^3.2.0",
     "simple-mock": "^0.7.3"
+  }
   }
 }
