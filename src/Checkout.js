@@ -8,15 +8,11 @@ Checkout.prototype.showSubtotal = function() {
 
 Checkout.prototype.addVoucher = function(voucher) {
   if (!voucher.requiredItem){
-    if(this.shoppingCart.totalPrice() >= voucher.minSpend){
-      this.voucher = voucher;
-    }
+    this._applyVoucherIfMinimumSpendReached(voucher);
   } else {
     for (i = 0; i < this.shoppingCart.items.length; i++) {
       if (this.shoppingCart.items[i][0].category.includes(voucher.requiredItem)) {
-        if (this.shoppingCart.totalPrice() >= voucher.minSpend) {
-          this.voucher = voucher;
-        }
+        this._applyVoucherIfMinimumSpendReached(voucher);
       }
     }
   }
@@ -28,6 +24,12 @@ Checkout.prototype.totalPrice = function() {
 } else {
   return this.showSubtotal();
 }
+}
+
+Checkout.prototype._applyVoucherIfMinimumSpendReached = function(voucher) {
+  if(this.shoppingCart.totalPrice() >= voucher.minSpend){
+      this.voucher = voucher;
+    }
 }
 
 
