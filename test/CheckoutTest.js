@@ -77,5 +77,11 @@ describe("Checkout", function() {
     checkout3.addVoucher(voucher3);
     expect(checkout3.totalPrice()).to.equal(checkout3.showSubtotal());
     });
+
+    it("only accepts a single voucher", function(){
+      checkout1.addVoucher(voucher1);
+      checkout1.addVoucher(voucher3);
+      expect(checkout1.totalPrice()).to.equal(453);
+    });
   });
 });
