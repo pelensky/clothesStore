@@ -59,4 +59,15 @@ describe("Checkout", function() {
       expect(checkout1.voucher.amount).to.equal(15);
     });
   });
+
+  describe("Total", function(){
+    it("displays the total price including the discount", function(){
+      checkout1.addVoucher(voucher3);
+      expect(checkout1.totalPrice()).to.equal(453);
+      checkout2.addVoucher(voucher1);
+      expect(checkout2.totalPrice()).to.equal(25);
+      checkout3.addVoucher(voucher2);
+      expect(checkout3.totalPrice()).to.equal(260);
+    }); 
+  });
 });
