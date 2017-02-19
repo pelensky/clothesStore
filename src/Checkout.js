@@ -23,6 +23,11 @@ Checkout.prototype.addVoucher = function(voucher) {
 }
 
 Checkout.prototype.totalPrice = function() {
+  if(this.voucher){
   return this.showSubtotal() - this.voucher.amount; 
+} else {
+  return this.showSubtotal();
 }
+}
+
 module.exports = Checkout;

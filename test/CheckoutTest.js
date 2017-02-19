@@ -69,5 +69,13 @@ describe("Checkout", function() {
       checkout3.addVoucher(voucher2);
       expect(checkout3.totalPrice()).to.equal(260);
     }); 
+
+    it("displays the total price equal to the subtotal when there is no voucher", function(){
+    expect(checkout1.totalPrice()).to.equal(checkout1.showSubtotal());
+    checkout2.addVoucher(voucher2);
+    expect(checkout2.totalPrice()).to.equal(checkout2.showSubtotal());
+    checkout3.addVoucher(voucher3);
+    expect(checkout3.totalPrice()).to.equal(checkout3.showSubtotal());
+    });
   });
 });
