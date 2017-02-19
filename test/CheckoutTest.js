@@ -22,7 +22,7 @@ describe("Checkout", function() {
     checkout3 = new Checkout(shoppingCart3);
     voucher1 = new Voucher(5);
     voucher2 = new Voucher(10, 50);
-    voucher3 = new Voucher(15, 75, "Women's Footwear");
+    voucher3 = new Voucher(15, 75, "Footwear");
   });
 
 

@@ -13,7 +13,7 @@ Checkout.prototype.addVoucher = function(voucher) {
     }
   } else {
     for (i = 0; i < this.shoppingCart.items.length; i++) {
-      if (this.shoppingCart.items[i][0].category === voucher.requiredItem) {
+      if (this.shoppingCart.items[i][0].category.includes(voucher.requiredItem)) {
         if (this.shoppingCart.totalPrice() >= voucher.minSpend) {
           this.voucher = voucher;
         }
@@ -29,5 +29,6 @@ Checkout.prototype.totalPrice = function() {
   return this.showSubtotal();
 }
 }
+
 
 module.exports = Checkout;
