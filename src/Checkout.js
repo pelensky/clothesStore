@@ -19,11 +19,11 @@ Checkout.prototype.addVoucher = function(voucher) {
 }
 
 Checkout.prototype.totalPrice = function() {
-  if(this.voucher){
-  return this.showSubtotal() - this.voucher.amount; 
-} else {
-  return this.showSubtotal();
-}
+  if (this.voucher) {
+    return this.showSubtotal() - this.voucher.amount;
+  } else {
+    return this.showSubtotal();
+  }
 }
 
 Checkout.prototype._applyVoucherIfMinimumSpendReached = function(voucher) {
@@ -32,5 +32,4 @@ Checkout.prototype._applyVoucherIfMinimumSpendReached = function(voucher) {
     }
 }
 
-
-module.exports = Checkout;
+module.exports = Checkout
