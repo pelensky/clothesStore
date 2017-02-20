@@ -12,9 +12,8 @@ describe("Store", function() {
 
   describe("Startup", function(){
     it("has the items in the store", function(){
-      expect(store.products).to.include(shoe);
+      store.stockProducts();
+      expect(store.allProducts).to.include(shoe);
     })
   });
 });
-
-
