@@ -1,4 +1,4 @@
-{ "products": [
+var products = {
   {
     "id": 1,
     "name": "Almond Toe Court Shoes, Patent Black",
@@ -91,5 +91,4 @@
     "price": 540.00,
     "quantity": 5
   }
-]
 }

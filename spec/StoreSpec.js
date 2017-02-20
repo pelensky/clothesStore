@@ -7,7 +7,7 @@ describe("Store", function() {
   describe("Startup", function(){
     it("has the items in the store", function(){
       store.stockProducts();
-      expect(store.allProducts).to.include(shoe);
+      expect(store.products[0]).toEqual(shoe);
     })
   });
 });
