@@ -25,7 +25,6 @@ describe("Checkout", function() {
     voucher3 = new Voucher(15, 75, "Footwear");
   });
 
-
   describe("A shopping Cart must be passed in", function(){
     it("stores the shopping cart", function() {
       expect(checkout1.shoppingCart).to.equal(shoppingCart1);
