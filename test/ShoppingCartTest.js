@@ -11,9 +11,9 @@ describe("ShoppingCart", function() {
 
   beforeEach(function() {
     shoppingCart = new ShoppingCart();
-    shoe = new Product("Almond Toe Court Shoes, Patent Black", "Women’s Footwear", 99, 5 );
-    flipFlops = new Product("Flip Flops, Blue", "Men’s Footwear", 19, 0);
-    dress = new Product("Bird Print Dress, Black", "Women’s Formalwear", 270, 10);
+    shoe = new Product(1, "Almond Toe Court Shoes, Patent Black", "Women’s Footwear", 99, 5 );
+    flipFlops = new Product(5, "Flip Flops, Blue", "Men’s Footwear", 19, 0);
+    dress = new Product(12, "Bird Print Dress, Black", "Women’s Formalwear", 270, 10);
 
   });
 

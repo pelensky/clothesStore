@@ -1,9 +1,10 @@
-function Product(name, category, price, quantity, id) {
+function Product(id, name, category, price, quantity, sale) {
+  this.id = id;
   this.name = name;
   this.category = category;
   this.price = price;
   this.quantity = quantity;
-  this.id = id;
+  this.sale = sale;
 }
 
 module.exports = Product;

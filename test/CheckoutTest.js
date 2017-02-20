@@ -7,9 +7,9 @@ var Voucher = require('../src/Voucher.js');
 describe("Checkout", function() {
 
   beforeEach(function() {
-    shoe = new Product("Almond Toe Court Shoes, Patent Black", "Women's Footwear", 99, 5 );
-    dress = new Product("Bird Print Dress, Black", "Women’s Formalwear", 270, 10);
-    shorts = new Product("Cotton Shorts, Medium Red", "Women's Casualwear", 30, 5);
+    shoe = new Product(1, "Almond Toe Court Shoes, Patent Black", "Women's Footwear", 99, 5 );
+    dress = new Product(12, "Bird Print Dress, Black", "Women’s Formalwear", 270, 10);
+    shorts = new Product(7, "Cotton Shorts, Medium Red", "Women's Casualwear", 30, 5);
     shoppingCart1 = new ShoppingCart();
     shoppingCart1.addItem( shoe, 2 );
     shoppingCart1.addItem( dress, 1 );
@@ -67,7 +67,7 @@ describe("Checkout", function() {
       expect(checkout2.totalPrice()).to.equal(25);
       checkout3.addVoucher(voucher2);
       expect(checkout3.totalPrice()).to.equal(260);
-    }); 
+    });
 
     it("displays the total price equal to the subtotal when there is no voucher", function(){
     expect(checkout1.totalPrice()).to.equal(checkout1.showSubtotal());

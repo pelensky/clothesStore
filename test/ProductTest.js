@@ -4,7 +4,7 @@ var Product = require('../src/Product.js');
 describe(`Product`, function() {
 
   beforeEach(function() {
-    shoe = new Product("Almond Toe Court Shoes, Patent Black", "Women’s Footwear", 99, 5 );
+    shoe = new Product(1, "Almond Toe Court Shoes, Patent Black", "Women’s Footwear", 99, 5 );
   });
 
   describe("Each product should take a", function(){
