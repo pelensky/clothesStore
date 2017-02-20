@@ -1,6 +1,21 @@
 function Store() {
   this.products = [];
+  this.vouchers = [];
 }
+var vouchers = [
+  {
+    "amount": 5,
+  },
+  {
+    "amount": 10,
+    "minSpend": 50
+  },
+  {
+    "amount": 15,
+    "minSpend": 75,
+    "requiredItem": "Footwear"
+  }
+]
 
 var allProducts = [
   {
@@ -99,7 +114,7 @@ var allProducts = [
 
 Store.prototype.stockProducts = function(){
   for (i = 0; i < allProducts.length; i++ ){
-    this.products.push((new Product(allProducts[i].id, allProducts[i].name, allProducts[i].category, allProducts[i].price, allProducts[i].quantity, allProducts[i].sale)));
+    this.products.push(new Product(allProducts[i].id, allProducts[i].name, allProducts[i].category, allProducts[i].price, allProducts[i].quantity, allProducts[i].sale));
   }
 };
 
@@ -113,4 +128,40 @@ Store.prototype.displayItems = function() {
       document.getElementById(`td${i}`).innerHTML = `${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> <input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <input type="button" class="addToCart" value="Add to Cart" id="${i}">`
     }
   }
+};
+
+Store.prototype.showShoppingCart = function(shoppingCart) {
+  for (i = 0; i < shoppingCart.items.length; i++ ){
+    document.getElementById(`item${i}`).innerHTML = `Item: ${shoppingCart.items[i][0].name}, Quantity: ${shoppingCart.items[i][1]} Cost (each):  £${shoppingCart.items[i][0].price} <br>`;
+  }
+};
+
+Store.prototype.showSubtotal = function(shoppingCart) {
+  document.getElementById(`subtotal`).innerHTML = "Subtotal: £" + shoppingCart.totalPrice();
+};
+
+Store.prototype.setUpVouchers = function() {
+  for (i = 0; i < vouchers.length; i++ ){
+    this.vouchers.push(new Voucher(vouchers[i].amount, vouchers[i].minSpend, vouchers[i].requiredItem));
+  }
+}
+
+Store.prototype.displayVouchers = function() {
+  for (i = 0; i < this.vouchers.length; i++ ){
+    if(this.vouchers[i].minSpend === 0){
+      document.getElementById(`voucher${i}`).innerHTML = `${this.vouchers[i].amount} <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
+    } else if(!this.vouchers[i].requiredItem){
+      document.getElementById(`voucher${i}`).innerHTML = `${this.vouchers[i].amount} <br> ${this.vouchers[i].minSpend} <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
+    } else {
+      document.getElementById(`voucher${i}`).innerHTML = `${this.vouchers[i].amount} <br> ${this.vouchers[i].minSpend} <br> ${this.vouchers[i].requiredItem} <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
+    }
+  }
+};
+
+Store.prototype.showVoucherDiscount = function(checkout) {
+  document.getElementById("discount").innerHTML = "Discount: £" + checkout.voucher.amount;
+};
+
+Store.prototype.showTotalPrice = function(checkout) {
+  document.getElementById(`total`).innerHTML = "Total: £" + checkout.totalPrice();
 };

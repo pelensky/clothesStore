@@ -1,8 +1,11 @@
 $(document).ready(function() {
   var store = new Store();
   var shoppingCart = new ShoppingCart();
+  var checkout;
   store.stockProducts();
   store.displayItems();
+  store.setUpVouchers();
+  store.displayVouchers();
 
   $(".addToCart").on('click', function(){
     var itemNumber = $(this).attr('id');
@@ -11,7 +14,22 @@ $(document).ready(function() {
     var quantity = (qtyNumber > 1) ? qtyNumber : 1;
     var itemToAdd = store.products[itemNumber];
     shoppingCart.addItem(itemToAdd, quantity);
-    console.log(shoppingCart);
-  })
+    store.showShoppingCart(shoppingCart);
+    checkout = new Checkout(shoppingCart);
+    store.showSubtotal(shoppingCart);
+  });
 
+
+  $(".applyVoucher").on('click', function(){
+    var voucherNumber = $(this).attr('id');
+    console.log(voucherNumber);
+    console.log(store.vouchers[voucherNumber])
+    console.log(checkout);
+    var voucherToAdd = store.vouchers[voucherNumber];
+    checkout.addVoucher(voucherToAdd);
+    store.showVoucherDiscount(checkout);
+    console.log(checkout);
+    store.showTotalPrice(checkout);
+
+  });
 });
