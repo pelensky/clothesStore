@@ -1,9 +1,3 @@
-var expect = require('chai').expect;
-var ShoppingCart = require('../src/ShoppingCart.js');
-var Product = require('../src/Product.js');
-var Checkout = require('../src/Checkout.js');
-var Voucher = require('../src/Voucher.js');
-
 describe("Checkout", function() {
 
   beforeEach(function() {
@@ -27,60 +21,60 @@ describe("Checkout", function() {
 
   describe("A shopping Cart must be passed in", function(){
     it("stores the shopping cart", function() {
-      expect(checkout1.shoppingCart).to.equal(shoppingCart1);
+      expect(checkout1.shoppingCart).toEqual(shoppingCart1);
     });
   });
 
   describe("Subtotal", function(){
     it("shows the price before discount", function() {
-      expect(checkout1.showSubtotal()).to.equal(468);
+      expect(checkout1.showSubtotal()).toEqual(468);
     });
   });
   describe("Discount", function(){
     it ("accepts the voucher if it is valid", function() {
       checkout1.addVoucher(voucher1);
-     expect(checkout1.voucher.amount).to.equal(5);
+     expect(checkout1.voucher.amount).toEqual(5);
     });
     it ("rejects the voucher if the spend is not high enough", function() {
       checkout2.addVoucher(voucher2);
-      expect(checkout2.voucher).not.to.equal(voucher2);
+      expect(checkout2.voucher).not.toEqual(voucher2);
     });
     it("accepts the voucher if the spend is high enough", function(){
       checkout1.addVoucher(voucher2);
-      expect(checkout1.voucher.amount).to.equal(10);
+      expect(checkout1.voucher.amount).toEqual(10);
     });
     it("rejects the voucher if it doesn't meet all the conditions", function(){
       checkout3.addVoucher(voucher3);
-      expect(checkout3.voucher).not.to.equal(voucher3);
+      expect(checkout3.voucher).not.toEqual(voucher3);
     });
     it("accepts the voucher if it meets all the conditions", function(){
       checkout1.addVoucher(voucher3);
-      expect(checkout1.voucher.amount).to.equal(15);
+      expect(checkout1.voucher.amount).toEqual(15);
     });
   });
 
   describe("Total", function(){
     it("displays the total price including the discount", function(){
       checkout1.addVoucher(voucher3);
-      expect(checkout1.totalPrice()).to.equal(453);
+      expect(checkout1.totalPrice()).toEqual(453);
       checkout2.addVoucher(voucher1);
-      expect(checkout2.totalPrice()).to.equal(25);
+      expect(checkout2.totalPrice()).toEqual(25);
       checkout3.addVoucher(voucher2);
-      expect(checkout3.totalPrice()).to.equal(260);
+      expect(checkout3.totalPrice()).toEqual(260);
     });
 
     it("displays the total price equal to the subtotal when there is no voucher", function(){
-    expect(checkout1.totalPrice()).to.equal(checkout1.showSubtotal());
+    expect(checkout1.totalPrice()).toEqual(checkout1.showSubtotal());
     checkout2.addVoucher(voucher2);
-    expect(checkout2.totalPrice()).to.equal(checkout2.showSubtotal());
+    expect(checkout2.totalPrice()).toEqual(checkout2.showSubtotal());
     checkout3.addVoucher(voucher3);
-    expect(checkout3.totalPrice()).to.equal(checkout3.showSubtotal());
+    expect(checkout3.totalPrice()).toEqual(checkout3.showSubtotal());
     });
 
     it("only accepts a single voucher", function(){
       checkout1.addVoucher(voucher1);
       checkout1.addVoucher(voucher3);
-      expect(checkout1.totalPrice()).to.equal(453);
+      expect(checkout1.totalPrice()).toEqual(453);
     });
   });
 });

@@ -6,5 +6,3 @@ function Product(id, name, category, price, quantity, sale) {
   this.quantity = quantity;
   this.sale = sale;
 }
-
-module.exports = Product;

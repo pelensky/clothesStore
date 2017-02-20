@@ -1,12 +1,11 @@
 {
   "name": "clothesstore",
   "version": "1.0.0",
-  "description": "Web clothes store built in Javascript"
+  "description": "Web clothes store built in Javascript",
   "main": "index.js",
   "scripts": {
     "test": "mocha -R nyan"
-  }
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pelensky/clothesStore.git"
@@ -22,7 +21,8 @@
     "karma": "^1.4.1",
     "karma-nyan-reporter": "^0.2.5",
     "mocha": "^3.2.0",
-    "simple-mock": "^0.7.3"
-  }
+    "simple-mock": "^0.7.3",
+    "zombie": "^5.0.5",
+    "zombied-chai": "^1.0.69"
   }
 }

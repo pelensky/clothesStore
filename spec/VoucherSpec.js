@@ -1,5 +1,5 @@
-var expect = require('chai').expect;
-var Voucher = require('../src/Voucher.js');
+// var expect = require('chai').expect;
+// var Voucher = require('../src/Voucher.js');
 
 describe("Voucher", function() {
   var fiveOff;
@@ -14,15 +14,15 @@ describe("Voucher", function() {
 
   describe("Vouchers should accept an argument for ", function(){
     it("the amount off", function(){
-      expect(fiveOff.amount).to.equal(5)
+      expect(fiveOff.amount).toEqual(5)
     });
 
     it("the minimum spend", function(){
-      expect(tenOffWithFiftySpend.minSpend).to.equal(50);
+      expect(tenOffWithFiftySpend.minSpend).toEqual(50);
     });
 
     it("the minimum spend", function(){
-      expect(fifteenOffWithFootwearandSeventyFiveSpend.requiredItem).to.equal("Footwear");
+      expect(fifteenOffWithFootwearandSeventyFiveSpend.requiredItem).toEqual("Footwear");
     });
   });
 

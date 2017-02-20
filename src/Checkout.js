@@ -31,5 +31,3 @@ Checkout.prototype._applyVoucherIfMinimumSpendReached = function(voucher) {
       this.voucher = voucher;
     }
 }
-
-module.exports = Checkout

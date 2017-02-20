@@ -30,5 +30,4 @@ ShoppingCart.prototype.totalPrice = function() {
     total += this.items[i][0].price * this.items[i][1];
   }
   return total;
-}
-module.exports = ShoppingCart;
+};

@@ -1,9 +1,3 @@
-var expect = require('chai').expect;
-var Store = require('../src/Store.js');
-var Product = require('../src/Product.js');
-var ShoppingCart = require('../src/ShoppingCart.js');
-var Checkout = require('../src/Checkout.js');
-
 describe("Store", function() {
   beforeEach(function(){
     store = new Store();
