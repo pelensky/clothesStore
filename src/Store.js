@@ -187,7 +187,7 @@ Store.prototype.showVoucherDiscount = function(checkout) {
 
 Store.prototype.showTotalPrice = function(checkout) {
   if(checkout.totalPrice() < 0) {
-    document.getElementById(`total`).innerHTML = "<br> Total: £"
+    document.getElementById(`total`).innerHTML = "<br> Total: £0.00"
   } else {
     document.getElementById(`total`).innerHTML = "<br> Total: £" + checkout.totalPrice();
   }
