@@ -19,8 +19,17 @@ body {
 body h1 {
   font-size: 4em;
   font-family: 'Barrio', cursive;
+  margin-top: 0;
+  padding: 0;
 }
 
+header {
+    background-image: url("../img/shoppingcartbackground.png");
+}
+
+footer {
+    background-image: url("../img/shoppingcartbackground.png");
+}
 
 .row {
   margin-bottom: .5em;
@@ -39,4 +48,12 @@ body h1 {
 
 #shoppingCartDiv{
   margin-bottom: 1em;
+}
+
+.price {
+  font-size: 1.5em;
+}
+
+#discount {
+  color: red;
 }
