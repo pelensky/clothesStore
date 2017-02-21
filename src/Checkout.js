@@ -1,3 +1,5 @@
+// Responsible for the subtotal, discount and total cost of the transaction
+
 function Checkout(shoppingCart) {
   this.shoppingCart = shoppingCart;
 }
@@ -18,7 +20,6 @@ Checkout.prototype.addVoucher = function(voucher) {
     }
   }
 }
-
 
 Checkout.prototype.totalPrice = function() {
   if (this.voucher) {
