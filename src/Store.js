@@ -131,8 +131,14 @@ Store.prototype.displayItems = function() {
 };
 
 Store.prototype.showShoppingCart = function(shoppingCart) {
+  console.log(shoppingCart.items.length);
   for (i = 0; i < shoppingCart.items.length; i++ ){
-    document.getElementById(`item${i}`).innerHTML = `Item: ${shoppingCart.items[i][0].name}, Quantity: ${shoppingCart.items[i][1]} Cost (each):  £${shoppingCart.items[i][0].price} <br>`;
+    if(shoppingCart.items.length=== 0){
+      document.getElementByID('shoppingCartDiv').innerHTML = "";
+    } else {
+      document.getElementById(`item${i}`).innerHTML = `Item: ${shoppingCart.items[i][0].name}, Quantity: ${shoppingCart.items[i][1]} Cost (each):  £${shoppingCart.items[i][0].price} <input type="button" class="removeItem" value="Remove" id="${i}"><br>`;
+      document.getElementById(`item${i+1}`).innerHTML = "";
+    }
   }
 };
 
@@ -164,4 +170,8 @@ Store.prototype.showVoucherDiscount = function(checkout) {
 
 Store.prototype.showTotalPrice = function(checkout) {
   document.getElementById(`total`).innerHTML = "Total: £" + checkout.totalPrice();
+};
+
+Store.prototype.removeDeletedItems = function(i) {
+  document.getElementById(`i`).innerHTML = "DAN IS COOL";
 };

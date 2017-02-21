@@ -17,6 +17,7 @@ $(document).ready(function() {
     store.showShoppingCart(shoppingCart);
     checkout = new Checkout(shoppingCart);
     store.showSubtotal(shoppingCart);
+    store.showTotalPrice(checkout);
   });
 
 
@@ -30,6 +31,14 @@ $(document).ready(function() {
     store.showVoucherDiscount(checkout);
     console.log(checkout);
     store.showTotalPrice(checkout);
-
   });
+
+  $(document).on('click', '.removeItem', function() {
+    var shoppingCartItemNumber = $(this).attr('id');
+    shoppingCart.removeItem(shoppingCart.items[shoppingCartItemNumber])
+    store.showSubtotal(shoppingCart);
+    store.showShoppingCart(shoppingCart);
+    store.showTotalPrice(checkout);
+  });
+
 });

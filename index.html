@@ -8,6 +8,12 @@
   <meta name="description" content="Clothes Store">
   <meta name="author" content="Dan Pelensky">
   <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script
   src="https://code.jquery.com/jquery-3.1.1.js"
   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
@@ -31,50 +37,45 @@
     <span id="subtotal"></span>
     <span id="discount"></span>
     <span id="total"></span>
-    </div>
+  </div>
 
-    <div id="productsTable">
-      <table>
-        <tr>
-          <td id="td0"></td>
-          <td id="td1"></td>
-        </tr>
-        <tr>
-          <td id="td2"></td>
-          <td id="td3"></td>
-        </tr>
-        <tr>
-          <td id="td4"></td>
-          <td id="td5"></td>
-        </tr>
-        <tr>
-          <td id="td6"></td>
-          <td id="td7"></td>
-        </tr>
-        <tr>
-          <td id="td8"></td>
-          <td id="td9"></td>
-        </tr>
-        <tr>
-          <td id="td10"></td>
-          <td id="td11"></td>
-        </tr>
-        <tr>
-          <td id="td12"></td>
-          <td id="td13"></td>
-        </tr>
-      </table>
+  <div id="productsTable">
+    <div class="row">
+      <div class="col-sm-4" id="td0"></div>
+      <div class="col-sm-4" id="td1"></div>
+      <div class="col-sm-4" id="td2"></div>
     </div>
-    <div id = "vouchers">
-      <div id="voucher0"></div>
-      <div id="voucher1"></div>
-      <div id="voucher2"></div>
+    <div class="row">
+      <div class="col-sm-4" id="td3"></div>
+      <div class="col-sm-4" id="td4"></div>
+      <div class="col-sm-4" id="td5"></div>
     </div>
-    <script src="src/Store.js"></script>
-    <script src="src/Product.js"></script>
-    <script src="src/ShoppingCart.js"></script>
-    <script src="src/Voucher.js"></script>
-    <script src="src/Checkout.js"></script>
-    <script src="src/index.js"></script>
-  </body>
-  </html>
+    <div class="row">
+      <div class="col-sm-4" id="td6"></div>
+      <div class="col-sm-4" id="td7"></div>
+      <div class="col-sm-4" id="td8"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4" id="td9"></div>
+      <div class="col-sm-4" id="td10"></div>
+      <div class="col-sm-4" id="td11"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4" id="td12"></div>
+      <div class="col-sm-4" id="td13"></div>
+      <div class="col-sm-4" id="td14"></div>
+    </div>
+  </div>
+  <div class="row" id="vouchers">
+    <div class="col-sm-4" id="voucher0"></div>
+    <div class="col-sm-4" id="voucher1"></div>
+    <div class="col-sm-4" id="voucher2"></div>
+  </div>
+  <script src="src/Store.js"></script>
+  <script src="src/Product.js"></script>
+  <script src="src/ShoppingCart.js"></script>
+  <script src="src/Voucher.js"></script>
+  <script src="src/Checkout.js"></script>
+  <script src="src/index.js"></script>
+</body>
+</html>

@@ -45,14 +45,14 @@ describe("ShoppingCart", function() {
   describe("Removing from the cart", function(){
     it("items can be removed at any time", function(){
       shoppingCart.addItem(shoe, 1);
-      shoppingCart.removeItem(shoe, 1);
+      shoppingCart.removeItem(shoe);
       expect(shoppingCart.items).toEqual([]);
     });
 
     it("items can be removed when there are multiples", function(){
       shoppingCart.addItem(shoe, 1);
       shoppingCart.addItem(dress, 1);
-      shoppingCart.removeItem(shoe, 1);
+      shoppingCart.removeItem(shoe);
       expect(shoppingCart.items).toEqual([[dress, 1]]);
     });
   });

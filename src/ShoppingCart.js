@@ -13,7 +13,7 @@ ShoppingCart.prototype.addItem = function(item, quantity){
   }
 }
 
-ShoppingCart.prototype.removeItem = function(item, quantity){
+ShoppingCart.prototype.removeItem = function(item){
   var index;
   for (i = 0; i < this.items.length; i++) {
     if (this.items[i][0] === item){
