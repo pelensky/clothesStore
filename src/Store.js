@@ -141,7 +141,7 @@ Store.prototype.displayItems = function() {
     } else if (this.products[i].quantity < 1){
       document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> Out Of Stock`
     } else {
-      document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> <input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <input type="button" class="addToCart btn btn-outline-primary" value="Add to Cart" id="${i}">`
+      document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> <input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <button type="button" class="addToCart btn btn-outline-primary" id="${i}">Add to Cart</button>`
     }
   }
 };
@@ -151,7 +151,7 @@ Store.prototype.showShoppingCart = function(shoppingCart) {
     if(shoppingCart.items.length=== 0){
       document.getElementByID('shoppingCartDiv').innerHTML = "";
     } else {
-      document.getElementById(`item${i}`).innerHTML = `Item: ${shoppingCart.items[i][0].name}, Quantity: ${shoppingCart.items[i][1]} Cost (each):  £${shoppingCart.items[i][0].price} <input type="button" class="removeItem" value="Remove" id="${i}"><br>`;
+      document.getElementById(`item${i}`).innerHTML = `Item: ${shoppingCart.items[i][0].name} <br> Quantity: ${shoppingCart.items[i][1]} <br> Cost (each):  £${shoppingCart.items[i][0].price} <br> <button type="button" class="removeItem btn btn-sm btn-outline-secondary" id="${i}"> Remove </button> <br>`;
       document.getElementById(`item${i+1}`).innerHTML = "";
     }
   }
@@ -170,11 +170,11 @@ Store.prototype.setUpVouchers = function() {
 Store.prototype.displayVouchers = function() {
   for (i = 0; i < this.vouchers.length; i++ ){
     if(this.vouchers[i].minSpend === 0){
-      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off<br> No minimum spend <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
+      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off<br> No minimum spend <br> <button type="button" class="applyVoucher btn btn-outline-primary" id="${i}"> Apply Voucher </button>`;
     } else if(!this.vouchers[i].requiredItem){
-      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off <br> £${this.vouchers[i].minSpend} minimum spend <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
+      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off <br> £${this.vouchers[i].minSpend} minimum spend <br> <button type="button" class="applyVoucher btn btn-outline-primary" id="${i}"> Apply Voucher </button>`;
     } else {
-      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off <br> £${this.vouchers[i].minSpend} minimum spend <br> ${this.vouchers[i].requiredItem} item required <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
+      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off <br> £${this.vouchers[i].minSpend} minimum spend <br> ${this.vouchers[i].requiredItem} item required <br> <button type="button" class="applyVoucher btn btn-outline-primary" id="${i}"> Apply Voucher </button>`;
     }
   }
 };
@@ -187,7 +187,7 @@ Store.prototype.showVoucherDiscount = function(checkout) {
 
 Store.prototype.showTotalPrice = function(checkout) {
   if(checkout.totalPrice() < 0) {
-    document.getElementById(`total`).innerHTML = "<br> Total: £0.00"
+    document.getElementById(`total`).innerHTML = "<br> Total: £"
   } else {
     document.getElementById(`total`).innerHTML = "<br> Total: £" + checkout.totalPrice();
   }

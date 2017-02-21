@@ -20,7 +20,7 @@ body h1 {
   font-size: 4em;
   font-family: 'Barrio', cursive;
   margin-top: 0;
-  padding: 0;
+  padding: .25em;
 }
 
 header {
@@ -32,7 +32,8 @@ footer {
 }
 
 .row {
-  margin-bottom: .5em;
+  padding-bottom: 1em;
+  padding-top: 1em;
   margin: auto;
 }
 
