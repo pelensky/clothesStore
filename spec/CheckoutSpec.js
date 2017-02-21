@@ -35,10 +35,6 @@ describe("Checkout", function() {
       checkout1.addVoucher(voucher1);
      expect(checkout1.voucher.amount).toEqual(5);
     });
-    it ("rejects the voucher if the spend is not high enough", function() {
-      checkout2.addVoucher(voucher2);
-      expect(checkout2.voucher).not.toEqual(voucher2);
-    });
     it("accepts the voucher if the spend is high enough", function(){
       checkout1.addVoucher(voucher2);
       expect(checkout1.voucher.amount).toEqual(10);
@@ -61,14 +57,6 @@ describe("Checkout", function() {
       expect(checkout2.totalPrice()).toEqual(25);
       checkout3.addVoucher(voucher2);
       expect(checkout3.totalPrice()).toEqual(260);
-    });
-
-    it("displays the total price equal to the subtotal when there is no voucher", function(){
-    expect(checkout1.totalPrice()).toEqual(checkout1.showSubtotal());
-    checkout2.addVoucher(voucher2);
-    expect(checkout2.totalPrice()).toEqual(checkout2.showSubtotal());
-    checkout3.addVoucher(voucher3);
-    expect(checkout3.totalPrice()).toEqual(checkout3.showSubtotal());
     });
 
     it("only accepts a single voucher", function(){

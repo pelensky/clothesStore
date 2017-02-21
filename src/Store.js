@@ -1,7 +1,10 @@
+// Responsible for the customer's experience in the store.
+
 function Store() {
   this.products = [];
   this.vouchers = [];
 }
+
 var vouchers = [
   {
     "amount": 5,
@@ -15,7 +18,7 @@ var vouchers = [
     "minSpend": 75,
     "requiredItem": "Footwear"
   }
-]
+];
 
 var allProducts = [
   {
@@ -134,17 +137,16 @@ Store.prototype.stockProducts = function(){
 Store.prototype.displayItems = function() {
   for (i = 0; i < this.products.length; i++ ){
     if(this.products[i].sale){
-      document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> <s>£${this.products[i].price}</s> <br> £${this.products[i].sale} <br><input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <input  type="button" class="addToCart" value="Add to Cart" id="${i}">`
+      document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> <s>£${this.products[i].price}</s> <br> £${this.products[i].sale} <br><input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <input  type="button" class="addToCart btn btn-outline-primary" value="Add to Cart" id="${i}">`
     } else if (this.products[i].quantity < 1){
       document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> Out Of Stock`
     } else {
-      document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> <input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <input type="button" class="addToCart" value="Add to Cart" id="${i}">`
+      document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> <input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <input type="button" class="addToCart btn btn-outline-primary" value="Add to Cart" id="${i}">`
     }
   }
 };
 
 Store.prototype.showShoppingCart = function(shoppingCart) {
-  console.log(shoppingCart.items.length);
   for (i = 0; i < shoppingCart.items.length; i++ ){
     if(shoppingCart.items.length=== 0){
       document.getElementByID('shoppingCartDiv').innerHTML = "";
@@ -184,9 +186,9 @@ Store.prototype.showVoucherDiscount = function(checkout) {
 };
 
 Store.prototype.showTotalPrice = function(checkout) {
-  document.getElementById(`total`).innerHTML = "<br> Total: £" + checkout.totalPrice();
-};
-
-Store.prototype.removeDeletedItems = function(i) {
-  document.getElementById(`i`).innerHTML = "DAN IS COOL";
+  if(checkout.totalPrice() < 0) {
+    document.getElementById(`total`).innerHTML = "<br> Total: £0.00"
+  } else {
+    document.getElementById(`total`).innerHTML = "<br> Total: £" + checkout.totalPrice();
+  }
 };
