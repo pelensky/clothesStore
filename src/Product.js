@@ -1,3 +1,5 @@
+// Responsible for the indvidual products
+
 function Product(id, name, category, price, quantity, img, sale) {
   this.id = id;
   this.name = name;
