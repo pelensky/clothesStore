@@ -33,6 +33,7 @@ footer {
 
 .row {
   margin-bottom: .5em;
+  margin: auto;
 }
 
 .col-sm-4 .img-responsive {
