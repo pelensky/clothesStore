@@ -6,14 +6,14 @@ describe("Store", function() {
   });
 
   describe("Stock Products", function(){
-    it("has the items in the store", function(){
+    it("puts all products into the store", function(){
       store.stockProducts();
       expect(store.products[0]).toEqual(shoe);
     });
   });
 
   describe("Set up vouchers", function(){
-    it("has the vouchers created", function(){
+    it("creates all vouchers", function(){
       store.setUpVouchers();
       expect(store.vouchers[0]).toEqual(voucher1);
     });

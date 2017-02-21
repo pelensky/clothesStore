@@ -19,7 +19,7 @@ describe("ShoppingCart", function() {
     });
   });
 
-  describe("Adding to the cart", function(){
+  describe("While adding to the cart", function(){
     it("items can be added if there is sufficient quantity", function(){
       shoppingCart.addItem(shoe, 1);
       expect(shoppingCart.items).toEqual([[shoe, 1]]);
@@ -35,14 +35,14 @@ describe("ShoppingCart", function() {
       expect(shoppingCart.items).toEqual([[shoe, 5]]);
     });
 
-    it("can add multiple items", function(){
+    it("you can add multiple items", function(){
       shoppingCart.addItem(shoe, 1);
       shoppingCart.addItem(dress, 1);
       expect(shoppingCart.items).toEqual([[shoe, 1], [dress, 1]]);
     });
   });
 
-  describe("Removing from the cart", function(){
+  describe("While removing from the cart", function(){
     it("items can be removed at any time", function(){
       shoppingCart.addItem(shoe, 1);
       shoppingCart.removeItem(shoe);
@@ -57,7 +57,7 @@ describe("ShoppingCart", function() {
     });
   });
 
-  describe("Display the total price of the shopping Cart when", function(){
+  describe("Displaying the price of the shopping cart when", function(){
     it("there is only one item", function(){
       shoppingCart.addItem(shoe, 1);
       expect(shoppingCart.totalPrice()).toEqual(99)

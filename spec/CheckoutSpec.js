@@ -19,37 +19,33 @@ describe("Checkout", function() {
     voucher3 = new Voucher(15, 75, "Footwear");
   });
 
-  describe("A shopping Cart must be passed in", function(){
+  describe("When a shopping cart is passed in it", function(){
     it("stores the shopping cart", function() {
       expect(checkout1.shoppingCart).toEqual(shoppingCart1);
     });
   });
 
-  describe("Subtotal", function(){
-    it("shows the price before discount", function() {
+  describe("The subtotal is", function(){
+    it("the price before discount", function() {
       expect(checkout1.showSubtotal()).toEqual(468);
     });
   });
-  describe("Discount", function(){
-    it ("accepts the voucher if it is valid", function() {
+  describe("For discounts, the voucher is accepted if ", function(){
+    it ("it is valid", function() {
       checkout1.addVoucher(voucher1);
      expect(checkout1.voucher.amount).toEqual(5);
     });
-    it("accepts the voucher if the spend is high enough", function(){
+    it("the spend is high enough", function(){
       checkout1.addVoucher(voucher2);
       expect(checkout1.voucher.amount).toEqual(10);
     });
-    it("rejects the voucher if it doesn't meet all the conditions", function(){
-      checkout3.addVoucher(voucher3);
-      expect(checkout3.voucher).not.toEqual(voucher3);
-    });
-    it("accepts the voucher if it meets all the conditions", function(){
+    it("it meets all the conditions", function(){
       checkout1.addVoucher(voucher3);
       expect(checkout1.voucher.amount).toEqual(15);
     });
   });
 
-  describe("Total", function(){
+  describe("The total", function(){
     it("displays the total price including the discount", function(){
       checkout1.addVoucher(voucher3);
       expect(checkout1.totalPrice()).toEqual(453);
@@ -59,7 +55,7 @@ describe("Checkout", function() {
       expect(checkout3.totalPrice()).toEqual(260);
     });
 
-    it("only accepts a single voucher", function(){
+    it("only reduces the price for a single voucher", function(){
       checkout1.addVoucher(voucher1);
       checkout1.addVoucher(voucher3);
       expect(checkout1.totalPrice()).toEqual(453);
