@@ -11,12 +11,14 @@ Checkout.prototype.addVoucher = function(voucher) {
     this._applyVoucherIfMinimumSpendReached(voucher);
   } else {
     for (i = 0; i < this.shoppingCart.items.length; i++) {
-      if (this.shoppingCart.items[i][0].category.includes(voucher.requiredItem)) {
+      if
+      (this.shoppingCart.items[i][0].category.includes(voucher.requiredItem)) {
         this._applyVoucherIfMinimumSpendReached(voucher);
       }
     }
   }
 }
+
 
 Checkout.prototype.totalPrice = function() {
   if (this.voucher) {
@@ -28,6 +30,13 @@ Checkout.prototype.totalPrice = function() {
 
 Checkout.prototype._applyVoucherIfMinimumSpendReached = function(voucher) {
   if(this.shoppingCart.totalPrice() >= voucher.minSpend){
-      this.voucher = voucher;
-    }
+    this.voucher = voucher;
+  } else {
+    swal({
+      title: "Sorry",
+      text: "Not eligible for this voucher",
+      type: "error",
+      confirmButtonText: "Got it"
+    });
+  }
 }

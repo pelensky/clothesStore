@@ -178,7 +178,9 @@ Store.prototype.displayVouchers = function() {
 };
 
 Store.prototype.showVoucherDiscount = function(checkout) {
-  document.getElementById("discount").innerHTML = "<br> Discount: £" + checkout.voucher.amount;
+  if(checkout.voucher){
+    document.getElementById("discount").innerHTML = "<br> Discount: £" + checkout.voucher.amount;
+  }
 };
 
 Store.prototype.showTotalPrice = function(checkout) {
