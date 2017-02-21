@@ -158,7 +158,7 @@ Store.prototype.showShoppingCart = function(shoppingCart) {
 };
 
 Store.prototype.showSubtotal = function(shoppingCart) {
-  document.getElementById(`subtotal`).innerHTML = "Subtotal: £" + shoppingCart.totalPrice();
+  document.getElementById(`subtotal`).innerHTML = "Subtotal: £" + shoppingCart.totalPrice().toFixed(2);
 };
 
 Store.prototype.setUpVouchers = function() {
@@ -181,7 +181,7 @@ Store.prototype.displayVouchers = function() {
 
 Store.prototype.showVoucherDiscount = function(checkout) {
   if(checkout.voucher){
-    document.getElementById("discount").innerHTML = "<br> Discount: £" + checkout.voucher.amount;
+    document.getElementById("discount").innerHTML = "<br> Discount: £" + checkout.voucher.amount.toFixed(2);
   }
 };
 
@@ -189,20 +189,20 @@ Store.prototype.showTotalPrice = function(checkout) {
   if(checkout.totalPrice() < 0) {
     document.getElementById(`total`).innerHTML = "<br> Total: £0.00"
   } else {
-    document.getElementById(`total`).innerHTML = "<br> Total: £" + checkout.totalPrice();
+    document.getElementById(`total`).innerHTML = "<br> Total: £" + checkout.totalPrice().toFixed(2);
   }
 };
 
 Store.prototype._saleProducts = function(){
-  document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> <s>£${this.products[i].price}</s> <br> <span id="sale"> £${this.products[i].sale} </span> <br><input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <input  type="button" class="addToCart btn btn-outline-primary" value="Add to Cart" id="${i}">`;
+  document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> <s>£${this.products[i].price.toFixed(2)}</s> <br> <span id="sale"> £${this.products[i].sale.toFixed(2)} </span> <br><input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <input  type="button" class="addToCart btn btn-outline-primary" value="Add to Cart" id="${i}">`;
 };
 
 Store.prototype._outOfStockProducts = function(){
-  document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> Out Of Stock`;
+  document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price.toFixed(2)} <br> Out Of Stock`;
 }
 
 Store.prototype._regularPriceStockedProducts = function(){
-  document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> <input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <button type="button" class="addToCart btn btn-outline-primary" id="${i}">Add to Cart</button>`;
+  document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price.toFixed(2)} <br> <input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <button type="button" class="addToCart btn btn-outline-primary" id="${i}">Add to Cart</button>`;
 }
 
 Store.prototype._voucherWithNoMinimumSpend = function(){
