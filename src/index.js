@@ -5,7 +5,6 @@ $(document).ready(function() {
   store.stockProducts();
   store.displayItems();
   store.setUpVouchers();
-  store.displayVouchers();
 
   $(".addToCart").on('click', function(){
     var itemNumber = $(this).attr('id');
@@ -18,10 +17,11 @@ $(document).ready(function() {
     checkout = new Checkout(shoppingCart);
     store.showSubtotal(shoppingCart);
     store.showTotalPrice(checkout);
+    store.displayVouchers();
   });
 
 
-  $(".applyVoucher").on('click', function(){
+    $(document).on('click', '.applyVoucher', function() {
     var voucherNumber = $(this).attr('id');
     console.log(voucherNumber);
     console.log(store.vouchers[voucherNumber])

@@ -12,33 +12,37 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script
   src="https://code.jquery.com/jquery-3.1.1.js"
   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
   crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
   <h1>Clothes Store</h1>
   <div id="shoppingCartDiv">
-    <span id="item0"></span>
-    <span id="item1"></span>
-    <span id="item2"></span>
-    <span id="item3"></span>
-    <span id="item4"></span>
-    <span id="item5"></span>
-    <span id="item6"></span>
-    <span id="item7"></span>
-    <span id="item8"></span>
-    <span id="item9"></span>
-    <span id="item10"></span>
+    <div id="item0"></div>
+    <div id="item1"></div>
+    <div id="item2"></div>
+    <div id="item3"></div>
+    <div id="item4"></div>
+    <div id="item5"></div>
+    <div id="item6"></div>
+    <div id="item7"></div>
+    <div id="item8"></div>
+    <div id="item9"></div>
+    <div id="item10"></div>
     <span id="subtotal"></span>
     <span id="discount"></span>
     <span id="total"></span>
   </div>
-
+  <div class="row" id="vouchers">
+    <div class="col-sm-4" id="voucher0"></div>
+    <div class="col-sm-4" id="voucher1"></div>
+    <div class="col-sm-4" id="voucher2"></div>
+  </div>
   <div id="productsTable">
     <div class="row">
       <div class="col-sm-4" id="td0"></div>
@@ -65,11 +69,6 @@
       <div class="col-sm-4" id="td13"></div>
       <div class="col-sm-4" id="td14"></div>
     </div>
-  </div>
-  <div class="row" id="vouchers">
-    <div class="col-sm-4" id="voucher0"></div>
-    <div class="col-sm-4" id="voucher1"></div>
-    <div class="col-sm-4" id="voucher2"></div>
   </div>
   <script src="src/Store.js"></script>
   <script src="src/Product.js"></script>

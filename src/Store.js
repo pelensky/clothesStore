@@ -168,11 +168,11 @@ Store.prototype.setUpVouchers = function() {
 Store.prototype.displayVouchers = function() {
   for (i = 0; i < this.vouchers.length; i++ ){
     if(this.vouchers[i].minSpend === 0){
-      document.getElementById(`voucher${i}`).innerHTML = `${this.vouchers[i].amount} <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
+      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off<br> No minimum spend <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
     } else if(!this.vouchers[i].requiredItem){
-      document.getElementById(`voucher${i}`).innerHTML = `${this.vouchers[i].amount} <br> ${this.vouchers[i].minSpend} <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
+      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off <br> £${this.vouchers[i].minSpend} minimum spend <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
     } else {
-      document.getElementById(`voucher${i}`).innerHTML = `${this.vouchers[i].amount} <br> ${this.vouchers[i].minSpend} <br> ${this.vouchers[i].requiredItem} <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
+      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off <br> £${this.vouchers[i].minSpend} minimum spend <br> ${this.vouchers[i].requiredItem} item required <br> <input  type="button" class="applyVoucher" value="Apply Voucher" id="${i}">`;
     }
   }
 };
@@ -182,7 +182,7 @@ Store.prototype.showVoucherDiscount = function(checkout) {
 };
 
 Store.prototype.showTotalPrice = function(checkout) {
-  document.getElementById(`total`).innerHTML = "Total: £" + checkout.totalPrice();
+  document.getElementById(`total`).innerHTML = "<br> Total: £" + checkout.totalPrice();
 };
 
 Store.prototype.removeDeletedItems = function(i) {

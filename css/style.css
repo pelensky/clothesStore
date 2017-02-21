@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:500,700, https://fonts.googleapis.com/css?family=Barrio);
 
 html {
   color: #222;
@@ -16,9 +16,11 @@ body {
   font-size: 1em;
 }
 
-h1 {
-  font-size: 1.5em;
+body h1 {
+  font-size: 4em;
+  font-family: 'Barrio', cursive;
 }
+
 
 .row {
   margin-bottom: .5em;
@@ -26,5 +28,15 @@ h1 {
 
 .col-sm-4 .img-responsive {
   max-height: 200px;
-   margin:auto;
+  margin:auto;
+}
+
+#vouchers {
+  max-height: 200px;
+  margin:auto;
+  margin-bottom: 1em;
+}
+
+#shoppingCartDiv{
+  margin-bottom: 1em;
 }
