@@ -1,3 +1,5 @@
+// Index file - user's interaction
+
 $(document).ready(function() {
   var store = new Store();
   var shoppingCart = new ShoppingCart();
