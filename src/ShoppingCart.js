@@ -1,3 +1,5 @@
+// Responsible for moving products in and out of the shopping cart
+
 function ShoppingCart() {
   this.items = [];
 }
