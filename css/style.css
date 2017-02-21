@@ -23,3 +23,8 @@ h1 {
 .row {
   margin-bottom: .5em;
 }
+
+.col-sm-4 .img-responsive {
+  max-height: 200px;
+   margin:auto;
+}
