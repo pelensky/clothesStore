@@ -147,13 +147,13 @@ Store.prototype.displayItems = function() {
 };
 
 Store.prototype.showShoppingCart = function(shoppingCart) {
-  for (i = 0; i < shoppingCart.items.length; i++ ){
-    if(shoppingCart.items.length=== 0){
-      document.getElementByID('shoppingCartDiv').innerHTML = "";
-    } else {
+  if(shoppingCart.items.length > 0){
+    for (i = 0; i < shoppingCart.items.length; i++ ){
       document.getElementById(`item${i}`).innerHTML = `Item: ${shoppingCart.items[i][0].name} <br> Quantity: ${shoppingCart.items[i][1]} <br> Cost (each):  £${shoppingCart.items[i][0].price} <br> <button type="button" class="removeItem btn btn-sm btn-outline-secondary" id="${i}"> Remove </button> <br>`;
       document.getElementById(`item${i+1}`).innerHTML = "";
     }
+  } else {
+    document.getElementById(`item0`).innerHTML = "";
   }
 };
 
