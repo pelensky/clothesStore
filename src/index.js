@@ -9,7 +9,9 @@ $(document).ready(function() {
 
   $(".addToCart").on('click', function(){
     var itemNumber = $(this).attr('id');
-    var quantity = (itemNumber > 1) ? itemNumber : 1;
+    var qty = $(`#quantity${itemNumber}`).val();
+    var qtyNumber = parseInt(qty);
+    var quantity = (qtyNumber > 1) ? qtyNumber : 1;
     shoppingCart.addItem(store.products[itemNumber], quantity);
     store.showShoppingCart(shoppingCart);
     checkout = new Checkout(shoppingCart);

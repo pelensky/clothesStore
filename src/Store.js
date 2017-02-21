@@ -137,11 +137,11 @@ Store.prototype.stockProducts = function(){
 Store.prototype.displayItems = function() {
   for (i = 0; i < this.products.length; i++ ){
     if(this.products[i].sale){
-      document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> <s>£${this.products[i].price}</s> <br> £${this.products[i].sale} <br><input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <input  type="button" class="addToCart btn btn-outline-primary" value="Add to Cart" id="${i}">`
+      this._saleProducts();
     } else if (this.products[i].quantity < 1){
-      document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> Out Of Stock`
+      this._outOfStockProducts();
     } else {
-      document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> <input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <button type="button" class="addToCart btn btn-outline-primary" id="${i}">Add to Cart</button>`
+      this._regularPriceStockedProducts();
     }
   }
 };
@@ -170,11 +170,11 @@ Store.prototype.setUpVouchers = function() {
 Store.prototype.displayVouchers = function() {
   for (i = 0; i < this.vouchers.length; i++ ){
     if(this.vouchers[i].minSpend === 0){
-      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off<br> No minimum spend <br> <button type="button" class="applyVoucher btn btn-outline-primary" id="${i}"> Apply Voucher </button>`;
+      this._voucherWithNoMinimumSpend();
     } else if(!this.vouchers[i].requiredItem){
-      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off <br> £${this.vouchers[i].minSpend} minimum spend <br> <button type="button" class="applyVoucher btn btn-outline-primary" id="${i}"> Apply Voucher </button>`;
+      this._voucherWithRequiredItem();
     } else {
-      document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off <br> £${this.vouchers[i].minSpend} minimum spend <br> ${this.vouchers[i].requiredItem} item required <br> <button type="button" class="applyVoucher btn btn-outline-primary" id="${i}"> Apply Voucher </button>`;
+      this._normalVoucher();
     }
   }
 };
@@ -192,3 +192,27 @@ Store.prototype.showTotalPrice = function(checkout) {
     document.getElementById(`total`).innerHTML = "<br> Total: £" + checkout.totalPrice();
   }
 };
+
+Store.prototype._saleProducts = function(){
+  document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> <s>£${this.products[i].price}</s> <br> <span id="sale"> £${this.products[i].sale} </span> <br><input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <input  type="button" class="addToCart btn btn-outline-primary" value="Add to Cart" id="${i}">`;
+};
+
+Store.prototype._outOfStockProducts = function(){
+  document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> Out Of Stock`;
+}
+
+Store.prototype._regularPriceStockedProducts = function(){
+  document.getElementById(`td${i}`).innerHTML = `<img src="./img/${this.products[i].img}" class="img-responsive"> <br> ${this.products[i].name} <br> ${this.products[i].category} <br> £${this.products[i].price} <br> <input type="number" class="number" id="quantity${i}" min="1" max="${this.products[i].quantity}"> <br> <button type="button" class="addToCart btn btn-outline-primary" id="${i}">Add to Cart</button>`;
+}
+
+Store.prototype._voucherWithNoMinimumSpend = function(){
+  document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off<br> No minimum spend <br> <button type="button" class="applyVoucher btn btn-outline-primary" id="${i}"> Apply Voucher </button>`;
+}
+
+Store.prototype._voucherWithRequiredItem = function(){
+  document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off <br> £${this.vouchers[i].minSpend} minimum spend <br> <button type="button" class="applyVoucher btn btn-outline-primary" id="${i}"> Apply Voucher </button>`;
+}
+
+Store.prototype._normalVoucher = function(){
+  document.getElementById(`voucher${i}`).innerHTML = `£${this.vouchers[i].amount} off <br> £${this.vouchers[i].minSpend} minimum spend <br> ${this.vouchers[i].requiredItem} item required <br> <button type="button" class="applyVoucher btn btn-outline-primary" id="${i}"> Apply Voucher </button>`;
+}

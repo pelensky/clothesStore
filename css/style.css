@@ -42,6 +42,10 @@ footer {
   margin:auto;
 }
 
+.price {
+  font-size: 1.5em;
+}
+
 #vouchers {
   max-height: 200px;
   margin:auto;
@@ -52,10 +56,12 @@ footer {
   margin-bottom: 1em;
 }
 
-.price {
-  font-size: 1.5em;
-}
-
 #discount {
   color: red;
+}
+
+#sale {
+  color: red;
+}
+
 }
