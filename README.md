@@ -1,6 +1,30 @@
 ## Clothes store
 ### HTML, CSS, JavaScript
 
+I was set the task of building a responsive website for a clothing retailer. I looked into building this using a framework, but decided that I would prefer to see if I could build this as a single page app using JavaScript and jQuery.
+
+I really enjoyed building this - I have never done a single page app in JavaScript that has so many moving parts.
+
+This app was mainly built using vanilla Javascript. I also used [jQuery](https://jquery.com/), [Bootstrap](http://getbootstrap.com/), and [SweetAlert](http://t4t5.github.io/sweetalert/).
+
+## Instructions:
+* Clone this repository
+* See that all tests pass by opening `SpecRunner.html`
+* Open `index.html`
+* Add items to your cart (you can only add as many as are in stock)
+* Add a voucher
+* You will see the total for your purchase
+
+## Blog:
+* I wrote a [blog post](https://medium.com/@pelensky/clothes-store-single-page-web-app-65210405fb20#.hx93i7639) about my experience building this.
+
+## Further plans:
+* Change the images to something with a transparent background so that I don't need to have a white background.
+* Make the vouchers look more exciting
+* Style and animate the shopping cart
+* Automated feature testing
+* Further refactoring of code.
+
 #### The Brief
 
 You’ve been asked to develop a responsive website for a clothing retailer.
