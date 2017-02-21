@@ -18,6 +18,10 @@ This app was mainly built using vanilla Javascript. I also used [jQuery](https:/
 ## Blog:
 * I wrote a [blog post](https://medium.com/@pelensky/clothes-store-single-page-web-app-65210405fb20#.hx93i7639) about my experience building this.
 
+## Video Demo:
+* [Mobile](https://vimeo.com/205090178)
+* [Desktop](https://vimeo.com/205090148)
+
 ## Further plans:
 * Change the images to something with a transparent background so that I don't need to have a white background.
 * Make the vouchers look more exciting
